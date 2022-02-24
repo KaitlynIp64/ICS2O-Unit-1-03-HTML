@@ -5,3 +5,49 @@
 [![Run on Repl.it](https://repl.it/badge/github/KaitlynIp64/ICS2O-Unit-1-03-HTML)](https://repl.it/github/KaitlynIp64/ICS2O-Unit-1-03-HTML)
 
 This site can be found at: [https://KaitlynIp64.github.io/ICS2O-Unit-1-03-HTML](https://KaitlynIp64.github.io/ICS2O-Unit-1-03-HTML)
+###############################################
+
+# Run GitHub's Super Linter against code base #
+
+###############################################
+
+
+
+---
+name: GitHub's Super Linter
+
+on: push
+
+
+
+jobs:
+
+  run-linters:
+
+    name: GitHub's Super Linter
+
+    runs-on: ubuntu-latest
+
+
+
+    steps:
+
+      - name: Check out Git repository
+
+        uses: actions/checkout@master
+
+        
+
+      - name: Run GitHub Super Linter
+
+        uses: github/super-linter@main
+
+        env:
+
+          VALIDATE_ALL_CODEBASE: true
+
+          VALIDATE_JAVASCRIPT_STANDARD: false
+
+          DEFAULT_BRANCH: main
+
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
